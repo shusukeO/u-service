@@ -1,29 +1,20 @@
-<!DOCTYPE html>
-<html lang="ja">
-    <head>
-        <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-        <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+<!doctype HTML>
+<html>
+<head>
+<script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+</head>
 
-        <!-- <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
-        <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script> -->
-    </head>
-    <body style="margin: 0px; overflow: hidden;">
-        <a-scene embedded arjs>
-            <!-- <a-marker preset="hiro"> 
-                <a-box position="0 1 0" ></a-box>
-                <a-text value="テスト" position="0 0 0" align="center"></a-text>
-            </a-marker> -->
-
-            <a-assets>
-                <a-asset-item id="neko-obj" src="/nekomodel/Mesh_Cat.obj"></a-asset-item>
-                <a-asset-item id="neko-mtl" src="/nekomodel/Mesh_Cat.mtl"></a-asset-item>
-            </a-assets>
-
-            <a-marker preset="hiro">
-                <a-obj-model id="neko" src="#neko-obj" mtl="#neko-mtl" position="0 0 0"></a-obj-model>
-            </a-marker>
-
-            <a-entity camera></a-entity>
-        </a-scene>
-    </body>
+<body style='margin:0px; overflow:hidden;'>
+<a-scene embedded arjs="debugUIEnabled:false;" vr-mode-ui="enabled: false">
+    <a-assets>
+        <a-asset-item id="santa-obj" src="nekomodel/cat.mtl"></a-asset-item>
+        <a-asset-item id="santa-mtl" src="nekomodel/cat.obj"></a-asset-item>
+    </a-assets>
+    <a-marker preset="hiro">
+        <a-obj-model id="santa" src="#santa-obj" mtl="#santa-mtl" position="0 0 0"></a-obj-model>
+    </a-marker>
+    <a-entity camera></a-entity>
+ </a-scene>
+</body>
 </html>
