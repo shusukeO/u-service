@@ -9,9 +9,18 @@
     </head>
     <body style="margin: 0px; overflow: hidden;">
         <a-scene embedded arjs>
-            <a-marker preset="hiro"> 
+            <!-- <a-marker preset="hiro"> 
                 <a-box position="0 1 0" ></a-box>
                 <a-text value="テスト" position="0 0 0" align="center"></a-text>
+            </a-marker> -->
+
+            <a-assets>
+                <a-asset-item id="neko-obj" src="nekoamodel/Mesh_Cat.obj"></a-asset-item>
+                <a-asset-item id="neko-mtl" src="nekomodel/Mesh_Cat.mtl"></a-asset-item>
+            </a-assets>
+
+            <a-marker preset="hiro">
+                <a-obj-model id="neko" src="#neko-obj" mtl="#neko-mtl" position="0 0 0"></a-obj-model>
             </a-marker>
 
             <a-entity camera></a-entity>
