@@ -8,16 +8,26 @@
 <body style='margin:0px; overflow:hidden;'>
 <a-scene embedded arjs="debugUIEnabled:false;" vr-mode-ui="enabled: false">
     <a-assets>
-        <a-asset-item id="santa-obj" src="bookmodel/book.obj"></a-asset-item>
-        <a-asset-item id="santa-mtl" src="bookmodel/book.mtl"></a-asset-item>
+        <a-asset-item id="book-obj" src="bookmodel/book.obj"></a-asset-item>
+        <a-asset-item id="book-mtl" src="bookmodel/book.mtl"></a-asset-item>
     </a-assets>
-    <a-marker preset="hiro">
-        <a-obj-model id="santa" scale="3 3 3" src="#santa-obj" mtl="#santa-mtl" position="0 0 0"></a-obj-model>
-        <a-obj-model id="santa" scale="3 3 3" src="#santa-obj" mtl="#santa-mtl" position="0.1 0.3 0"></a-obj-model>
-        <a-obj-model id="santa" scale="3 3 3" src="#santa-obj" mtl="#santa-mtl" position="0 0.6 0.1"></a-obj-model>
+    <a-marker preset="hiro" id="book">
+        <!-- <a-obj-model id="book" scale="3 3 3" src="#book-obj" mtl="#book-mtl" position="0 0 0"></a-obj-model>
+        <a-obj-model id="book" scale="3 3 3" src="#book-obj" mtl="#book-mtl" position="0.1 0.3 0"></a-obj-model>
+        <a-obj-model id="book" scale="3 3 3" src="#book-obj" mtl="#book-mtl" position="0 0.6 0.1"></a-obj-model> -->
 
     </a-marker>
     <a-entity camera></a-entity>
  </a-scene>
+ <script>
+     let div = '';
+     let postion = 0;
+     for(let i = 0; i < 3; i++){
+        div += `<a-obj-model id="book" scale="3 3 3" src="#book-obj" mtl="#book-mtl" position="0 ${postion} 0"></a-obj-model>`;
+        postion += 0.3;
+     }
+     document.getElementById('book').innerHTML = div;
+
+ </script>
 </body>
 </html>
