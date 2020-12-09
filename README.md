@@ -1,7 +1,7 @@
 # u-service
 ユビキタスサービス論のレポジトリ
-「積読AR」という案のプロトタイプです。
-<img src="https://user-images.githubusercontent.com/56382189/101641999-cf64b380-3a75-11eb-84c7-76e69fb97b2b.jpg*" width="100px">
+「積読AR」という案のプロトタイプです。  
+<img src="https://user-images.githubusercontent.com/56382189/101641999-cf64b380-3a75-11eb-84c7-76e69fb97b2b.jpg" width="100px">
 * github pagesにて公開
 https://shusukeo.github.io/u-service/
 
