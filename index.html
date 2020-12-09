@@ -1,33 +1,55 @@
 <!doctype HTML>
 <html>
+
 <head>
-<script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body style='margin:0px; overflow:hidden;'>
-<a-scene embedded arjs="debugUIEnabled:false;" vr-mode-ui="enabled: false">
-    <a-assets>
-        <a-asset-item id="book-obj" src="bookmodel/book.obj"></a-asset-item>
-        <a-asset-item id="book-mtl" src="bookmodel/book.mtl"></a-asset-item>
-    </a-assets>
-    <a-marker preset="hiro" id="book">
-        <!-- <a-obj-model id="book" scale="3 3 3" src="#book-obj" mtl="#book-mtl" position="0 0 0"></a-obj-model>
-        <a-obj-model id="book" scale="3 3 3" src="#book-obj" mtl="#book-mtl" position="0.1 0.3 0"></a-obj-model>
-        <a-obj-model id="book" scale="3 3 3" src="#book-obj" mtl="#book-mtl" position="0 0.6 0.1"></a-obj-model> -->
 
-    </a-marker>
-    <a-entity camera></a-entity>
- </a-scene>
- <script>
-     let div = '';
-     let postion = 0;
-     for(let i = 0; i < 3; i++){
-        div += `<a-obj-model id="book" scale="3 3 3" src="#book-obj" mtl="#book-mtl" position="0 ${postion} 0"></a-obj-model>`;
-        postion += 0.3;
-     }
-     document.getElementById('book').innerHTML = div;
+    <a-scene embedded arjs="debugUIEnabled:false;" vr-mode-ui="enabled: false">
+        <a-assets>
+            <a-asset-item id="book-obj" src="bookmodel/book.obj"></a-asset-item>
+            <a-asset-item id="book-mtl" src="bookmodel/book.mtl"></a-asset-item>
+        </a-assets>
+        <a-marker preset="hiro" id="book">
 
- </script>
+        </a-marker>
+        <a-entity camera></a-entity>
+    </a-scene>
+
+    <header>
+        <h2 style="color: white;">積読AR</h2>
+        <nav>
+            <ul class="menu">
+                <li><a href="https://github.com/shusukeO/u-service">source</a></li>
+                <li>持っている書籍の数 <input type="number" id="book_num" value="1"></input></li>
+                <li><button onclick="updateNum();">確定</button></li>
+
+            </ul>
+        </nav>
+    </header>
+    <script>
+        let div;
+        let postion = 0;
+        let num = 1;
+        updateNum();
+
+        function updateNum() {
+            div = ''
+            num = document.getElementById('book_num').value;
+            console.log(num);
+            for (let i = 0; i < num; i++) {
+                div += `<a-obj-model id="book" scale="3 3 3" src="#book-obj" mtl="#book-mtl" position="0 ${postion} 0"></a-obj-model>`;
+                postion += 0.3;
+            }
+            document.getElementById('book').innerHTML = div;
+        }
+
+
+    </script>
 </body>
+
 </html>
